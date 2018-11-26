@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildrenPortal", "ChildrenPortal\ChildrenPortal.csproj", "{5C27D141-9F84-427E-9E7C-9E7F7482E59E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChildrenPortal", "ChildrenPortal\ChildrenPortal.csproj", "{5C27D141-9F84-427E-9E7C-9E7F7482E59E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBRepository", "DBRepository\DBRepository.csproj", "{639CDD9F-1A22-4DD5-9D2C-46577E634F9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBRepository", "DBRepository\DBRepository.csproj", "{639CDD9F-1A22-4DD5-9D2C-46577E634F9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{A7827362-1F7A-4EB0-8C3F-D935AC3AFFD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{A7827362-1F7A-4EB0-8C3F-D935AC3AFFD5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,5 +33,20 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {36F1C198-E9F3-4623-959C-447C21D6640F}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs2017:8080/tfs/belstat
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ChildrenPortal\\ChildrenPortal.csproj
+		SccProjectName1 = ChildrenPortal
+		SccLocalPath1 = ChildrenPortal
+		SccProjectUniqueName2 = DBRepository\\DBRepository.csproj
+		SccProjectName2 = DBRepository
+		SccLocalPath2 = DBRepository
+		SccProjectUniqueName3 = Models\\Models.csproj
+		SccProjectName3 = Models
+		SccLocalPath3 = Models
 	EndGlobalSection
 EndGlobal

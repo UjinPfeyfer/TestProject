@@ -144,11 +144,14 @@ namespace DBRepository.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
+                    b.Property<bool>("IsNeedChangePassword");
+
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256);
@@ -162,15 +165,19 @@ namespace DBRepository.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed");
 
-                    b.Property<string>("Position");
+                    b.Property<string>("Position")
+                        .IsRequired();
 
-                    b.Property<string>("SecondName");
+                    b.Property<string>("SecondName")
+                        .IsRequired();
 
                     b.Property<string>("SecurityStamp");
 
-                    b.Property<string>("Subdivision");
+                    b.Property<string>("Subdivision")
+                        .IsRequired();
 
-                    b.Property<string>("Surname");
+                    b.Property<string>("Surname")
+                        .IsRequired();
 
                     b.Property<bool>("TwoFactorEnabled");
 
@@ -190,21 +197,220 @@ namespace DBRepository.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Models.Models.DataModels.Data", b =>
+            modelBuilder.Entity("Models.Models.ContentModels.News", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("NewsId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DataForm");
+                    b.Property<DateTime>("CreatingTime");
 
-                    b.Property<string>("OwnerId");
+                    b.Property<string>("Header");
 
-                    b.HasKey("Id");
+                    b.Property<string>("NewsText");
 
-                    b.HasIndex("OwnerId");
+                    b.Property<DateTime>("UpdatingTime");
 
-                    b.ToTable("Datas");
+                    b.HasKey("NewsId");
+
+                    b.ToTable("News");
+                });
+
+            modelBuilder.Entity("Models.Models.ContentModels.Poll", b =>
+                {
+                    b.Property<int>("PollId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatingTime");
+
+                    b.Property<string>("CreatorId");
+
+                    b.Property<string>("Header");
+
+                    b.Property<int>("IntervieweeCount");
+
+                    b.Property<string>("Question");
+
+                    b.Property<DateTime>("UpdatingTime");
+
+                    b.HasKey("PollId");
+
+                    b.HasIndex("CreatorId");
+
+                    b.ToTable("Polls");
+                });
+
+            modelBuilder.Entity("Models.Models.ContentModels.PollAnswer", b =>
+                {
+                    b.Property<int>("PollAnswerId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsAnswerRight");
+
+                    b.Property<string>("PollAnswerText");
+
+                    b.Property<int>("PollId");
+
+                    b.HasKey("PollAnswerId");
+
+                    b.HasIndex("PollId");
+
+                    b.ToTable("PollAnswers");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.Country", b =>
+                {
+                    b.Property<int>("CountryId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CountryName");
+
+                    b.HasKey("CountryId");
+
+                    b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.Dimension", b =>
+                {
+                    b.Property<int>("DimensionId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DimensionName");
+
+                    b.HasKey("DimensionId");
+
+                    b.ToTable("Dimensions");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.DimensionTree", b =>
+                {
+                    b.Property<int>("DimensionTreeId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DescendantId");
+
+                    b.Property<int>("DimensionId");
+
+                    b.Property<int>("Level");
+
+                    b.Property<int>("ParentId");
+
+                    b.HasKey("DimensionTreeId");
+
+                    b.HasIndex("DimensionId");
+
+                    b.ToTable("DimensionTrees");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.ElementOfSection", b =>
+                {
+                    b.Property<int>("ElementOfSectionId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ElementOfSectionName");
+
+                    b.Property<int>("SectionId");
+
+                    b.HasKey("ElementOfSectionId");
+
+                    b.HasIndex("SectionId");
+
+                    b.ToTable("ElementOfSections");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.ElementOfSectionSignificate", b =>
+                {
+                    b.Property<int>("ElementOfSectionSignificateId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<float>("Count");
+
+                    b.Property<int>("CountryId");
+
+                    b.Property<int>("ElementOfSectionId");
+
+                    b.Property<int>("SignificativeId");
+
+                    b.HasKey("ElementOfSectionSignificateId");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("ElementOfSectionId");
+
+                    b.HasIndex("SignificativeId");
+
+                    b.ToTable("ElementOfSectionSignificates");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.Heading", b =>
+                {
+                    b.Property<int>("HeadingId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("HeadingName");
+
+                    b.HasKey("HeadingId");
+
+                    b.ToTable("Headings");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.Section", b =>
+                {
+                    b.Property<int>("SectionId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("SectionName");
+
+                    b.HasKey("SectionId");
+
+                    b.ToTable("Sections");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.Significative", b =>
+                {
+                    b.Property<int>("SignificativeId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CountryId");
+
+                    b.Property<string>("SignificativeName");
+
+                    b.Property<int>("SubheadingId");
+
+                    b.HasKey("SignificativeId");
+
+                    b.HasIndex("CountryId");
+
+                    b.HasIndex("SubheadingId");
+
+                    b.ToTable("Significatives");
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.Subheading", b =>
+                {
+                    b.Property<int>("SubheadingId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("HeadingId");
+
+                    b.Property<string>("SubheadingName");
+
+                    b.HasKey("SubheadingId");
+
+                    b.HasIndex("HeadingId");
+
+                    b.ToTable("Subheadings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -252,11 +458,73 @@ namespace DBRepository.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Models.Models.DataModels.Data", b =>
+            modelBuilder.Entity("Models.Models.ContentModels.Poll", b =>
                 {
-                    b.HasOne("Models.Models.ApplicationUser", "Owner")
+                    b.HasOne("Models.Models.ApplicationUser", "Creator")
                         .WithMany()
-                        .HasForeignKey("OwnerId");
+                        .HasForeignKey("CreatorId");
+                });
+
+            modelBuilder.Entity("Models.Models.ContentModels.PollAnswer", b =>
+                {
+                    b.HasOne("Models.Models.ContentModels.Poll", "Poll")
+                        .WithMany("Answers")
+                        .HasForeignKey("PollId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.DimensionTree", b =>
+                {
+                    b.HasOne("Models.Models.DataModels.Dimension", "Dimension")
+                        .WithMany("DimensionTrees")
+                        .HasForeignKey("DimensionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.ElementOfSection", b =>
+                {
+                    b.HasOne("Models.Models.DataModels.Section", "Section")
+                        .WithMany("ElementOfSections")
+                        .HasForeignKey("SectionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.ElementOfSectionSignificate", b =>
+                {
+                    b.HasOne("Models.Models.DataModels.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Models.Models.DataModels.ElementOfSection", "ElementOfSection")
+                        .WithMany("ElementOfSectionSignificates")
+                        .HasForeignKey("ElementOfSectionId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Models.Models.DataModels.Significative", "Significative")
+                        .WithMany("ElementOfSectionSignificates")
+                        .HasForeignKey("SignificativeId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.Significative", b =>
+                {
+                    b.HasOne("Models.Models.DataModels.Country")
+                        .WithMany("Significatives")
+                        .HasForeignKey("CountryId");
+
+                    b.HasOne("Models.Models.DataModels.Subheading", "Subheading")
+                        .WithMany("Significatives")
+                        .HasForeignKey("SubheadingId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Models.Models.DataModels.Subheading", b =>
+                {
+                    b.HasOne("Models.Models.DataModels.Heading", "Heading")
+                        .WithMany("Subheadings")
+                        .HasForeignKey("HeadingId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

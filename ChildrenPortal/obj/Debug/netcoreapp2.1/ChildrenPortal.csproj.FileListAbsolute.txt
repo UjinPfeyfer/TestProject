@@ -17,3 +17,12 @@ C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\bin\Debug\ne
 C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\bin\Debug\netcoreapp2.1\DBRepository.pdb
 C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\bin\Debug\netcoreapp2.1\Models.pdb
 C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\obj\Debug\netcoreapp2.1\ChildrenPortal.csproj.CopyComplete
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\obj\Debug\netcoreapp2.1\ChildrenPortal.TagHelpers.input.cache
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\obj\Debug\netcoreapp2.1\ChildrenPortal.TagHelpers.output.cache
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\obj\Debug\netcoreapp2.1\ChildrenPortal.RazorCoreGenerate.cache
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\bin\Debug\netcoreapp2.1\ChildrenPortal.Views.dll
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\bin\Debug\netcoreapp2.1\ChildrenPortal.Views.pdb
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\obj\Debug\netcoreapp2.1\ChildrenPortal.RazorTargetAssemblyInfo.cs
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\obj\Debug\netcoreapp2.1\ChildrenPortal.Views.pdb
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\obj\Debug\netcoreapp2.1\Razor\Views\File\UploadCountry.g.cshtml.cs
+C:\Users\yauheni.pfeifer\Source\Repos\ChildrenPortal\ChildrenPortal\obj\Debug\netcoreapp2.1\Razor\Views\File\UploadTransMonee.g.cshtml.cs

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ChildrenPortal.Services.Interfaces;
 using DBRepository.Interfaces;
 using Models.Models;
+using Models.Models.AccountModels;
 using Microsoft.AspNetCore.Identity;
 
 namespace ChildrenPortal.Services.Implementation
@@ -12,9 +13,11 @@ namespace ChildrenPortal.Services.Implementation
     public class AccountService : IAccountService
     {
         IAccountRepository _repository;
-        public AccountService(IAccountRepository repository)
+        IJwtFactory _jwtFactory;
+        public AccountService(IAccountRepository repository, IJwtFactory jwtFactory)
         {
             _repository = repository;
+            _jwtFactory = jwtFactory;
         }
 
         public async Task<ApplicationUser> GetUser(string userEmail)
@@ -36,7 +39,13 @@ namespace ChildrenPortal.Services.Implementation
         {
             return await _repository.CreateUser(user, password);
         }
-        
+
+        public async Task<Object> GenerateToken(string email, ApplicationUser user)
+        {
+            return await _jwtFactory.GenerateJwtToken(email, user);
+        }
+
+
 
     }
 }

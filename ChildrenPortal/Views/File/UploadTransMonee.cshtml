@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@using (Html.BeginForm("", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="btn-toolbar nl container col-md-12" role="toolbar" aria-label="Menu">
+
+        <input class="btn-group col-md-2 col-md-offset-0 btn" id="newPay_file" name="file" type="file" onchange=@Url.Action("Upload", "Products") />
+        <button type="submit" id="submit" class="btn btn-default col-md-2 col-md-offset-0" formaction=@Url.Action("Upload", "Products")>Upload</button>
+    </div>
+}
+
